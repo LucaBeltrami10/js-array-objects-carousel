@@ -28,6 +28,7 @@ const images = [
 /**PIANIFICAZIONE PASSAGGI
  * recupero elementi html nel dom
  * creo per ogni oggetto contenuto nell'array una immagine con classe d-none
+ * aggiunto variabile 'index' per stabilire su quale immagine applicare classe speciale per metterla in visione
  * aggiungo listener su bottone UP e DOWN.
  * nel listener di ogni bottone, al click, applico una classe per rendere 1 immagine visibile
  */
@@ -35,3 +36,15 @@ const images = [
 const carouselContainer = document.getElementById('carousel-container')
 const buttonUp = document.getElementById('carousel-container')
 const buttonDown = document.getElementById('carousel-container')
+
+let visibleImage = 0
+
+images.forEach((images) => {
+    const newImage = document.createElement('img')
+    newImage.setAttribute('src', images.image)
+    newImage.setAttribute('alt', `image of ${images.title}`)
+    newImage.classList.add('d-none', 'my-img')
+
+    carouselContainer.appendChild(newImage)
+})
+
