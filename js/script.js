@@ -40,51 +40,55 @@ const buttonDown = document.getElementById('button-down');
 let visibleImageIndex = 0;
 
 images.forEach((images, index) => {
+    const newContainer = document.createElement('article');
+
     const newImage = document.createElement('img');
     newImage.setAttribute('src', images.image);
     newImage.setAttribute('alt', `image of ${images.title}`);
-    newImage.classList.add('d-none', 'w-100', `img-${index}`);
+    newImage.classList.add('w-100', `img-${index}`);
 
     if (visibleImageIndex == index){
-        newImage.classList.remove('d-none')
-    }
+        newImage.classList.remove('d-none');
+    };
 
-    carouselContainer.appendChild(newImage);
+    newContainer.appendChild(newImage)
+    carouselContainer.appendChild(newContainer);
+
 })
 
-let imgList = document.querySelectorAll('div#carousel-container img');
+let imgList = document.querySelectorAll('div#carousel-container article img');
 console.log(imgList)
 
 buttonUp.addEventListener('click', function(){
     visibleImageIndex += 1
 
-    if (visibleImageIndex >= 5){
+    if (visibleImageIndex > 4){
         visibleImageIndex = 0
     };
 
     imgList.forEach((img, index) => {
         if(index == visibleImageIndex){
-            img.classList.remove('d-none')
+            img.classList.remove('d-none');
         }else(
             img.classList.add('d-none')
-        )
+        );
     })  
 });
 
 buttonDown.addEventListener('click', function(){
-    visibleImageIndex -= 1
+    visibleImageIndex -= 1;
 
-    if (visibleImageIndex <= 0){
-        visibleImageIndex = 4
+    if (visibleImageIndex < 0){
+        visibleImageIndex = 4;
     };
 
     imgList.forEach((img, index) => {
         if(index == visibleImageIndex){
-            img.classList.remove('d-none')
+            img.classList.remove('d-none');
         }else(
             img.classList.add('d-none')
-        )
-    })  
+        );
+    });  
 });
 
 
