@@ -1,6 +1,4 @@
-
 /* oggetto inserito in consegna: */
-
 const images = [
     {
         image: 'img/01.webp',
@@ -25,14 +23,6 @@ const images = [
     }
 ];
 
-/**PIANIFICAZIONE PASSAGGI
- * recupero elementi html nel dom
- * creo per ogni oggetto contenuto nell'array una immagine con classe d-none
- * aggiunto variabile 'index' per stabilire su quale immagine applicare classe speciale per metterla in visione
- * aggiungo listener su bottone UP e DOWN.
- * nel listener di ogni bottone, al click, applico una classe per rendere 1 immagine visibile
- */
-
 const carouselContainer = document.getElementById('carousel-container');
 const buttonUp = document.getElementById('button-up');
 const buttonDown = document.getElementById('button-down');
@@ -40,40 +30,43 @@ const buttonDown = document.getElementById('button-down');
 let visibleImageIndex = 0;
 
 images.forEach((images, index) => {
+    /* PARENT */
     const newContainer = document.createElement('article');
     newContainer.classList.add('position-relative', 'd-none');
 
+    /* FIGLI PARENT */
     const newInfoContainer = document.createElement('div');
     newInfoContainer.classList.add('position-absolute', 'top-100');
 
     const newImage = document.createElement('img');
     newImage.setAttribute('src', images.image);
     newImage.setAttribute('alt', `image of ${images.title}`);
-    newImage.classList.add('w-100', `img-${index}`);
+    newImage.classList.add(`img-${index}`);
 
+    /* TITOLO E PARAGRAFO */
     const newTitle = document.createElement('h1');
+    newTitle.classList.add('text-end')
     newTitle.innerHTML = images.title;
 
     const newParagraph = document.createElement('p')
+    newParagraph.classList.add('text-end')
     newParagraph.innerHTML = images.text;
 
+    /* CONDIZIONE PER PRIMA IMMAGINE E TESTO MOSTRATI IN PAGINA */
     if (index == 0){
         newContainer.classList.remove('d-none');
     };
 
     newInfoContainer.appendChild(newTitle);
     newInfoContainer.appendChild(newParagraph);
-
     newContainer.appendChild(newInfoContainer);
     newContainer.appendChild(newImage);
     carouselContainer.appendChild(newContainer);
 
 })
 
-let imgList = document.querySelectorAll('div#carousel-container article img');
-console.log(imgList)
 let infoContainerList = document.querySelectorAll('div#carousel-container article')
-console.log(infoContainerList)
+
 
 buttonUp.addEventListener('click', function(){
     visibleImageIndex += 1
@@ -128,22 +121,3 @@ buttonDown.addEventListener('click', function(){
  *      -modifico l'oggetto nell'array IMMAGINI corrispindente a INDEX aggiungendo classe X
  *      -rimuovo classe X a tutti gli oggetti non coincidenti alla posizione INDEX
  */
-
-/* PROVE */
-
-/* images.forEach((images, index) => {
-        if(index == visibleImage){
-            newImage.classList.remove('d-none')
-        }
-
-    }) */
-
-/* function show(array, interaction){
-    visibleImage = visibleImage + interaction
-
-    array.forEach((images, index) => {
-        if(index == visibleImage){
-
-        }
-    })
-} */
