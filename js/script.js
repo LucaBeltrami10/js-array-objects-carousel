@@ -33,18 +33,68 @@ const images = [
  * nel listener di ogni bottone, al click, applico una classe per rendere 1 immagine visibile
  */
 
-const carouselContainer = document.getElementById('carousel-container')
-const buttonUp = document.getElementById('carousel-container')
-const buttonDown = document.getElementById('carousel-container')
+const carouselContainer = document.getElementById('carousel-container');
+const buttonUp = document.getElementById('carousel-container');
+const buttonDown = document.getElementById('carousel-container');
 
-let visibleImage = 0
+let visibleImageIndex = 0;
 
-images.forEach((images) => {
-    const newImage = document.createElement('img')
-    newImage.setAttribute('src', images.image)
-    newImage.setAttribute('alt', `image of ${images.title}`)
-    newImage.classList.add('d-none', 'w-100')
+images.forEach((images, index) => {
+    const newImage = document.createElement('img');
+    newImage.setAttribute('src', images.image);
+    newImage.setAttribute('alt', `image of ${images.title}`);
+    newImage.classList.add('d-none', 'w-100', `img-${index}`);
 
-    carouselContainer.appendChild(newImage)
+    if (visibleImageIndex == index){
+        newImage.classList.remove('d-none')
+    }
+
+    carouselContainer.appendChild(newImage);
 })
 
+let imgList = document.querySelectorAll('div#carousel-container img');
+console.log(imgList)
+
+buttonUp.addEventListener('click', function(){
+    visibleImageIndex += 1
+
+    if (visibleImageIndex > 5){
+        visibleImageIndex = 0
+    };
+
+    
+
+    if(imgList.length == visibleImageIndex){
+        imgList[visibleImageIndex].classList.remove('d-none')
+    }else(
+        imgList[visibleImageIndex].classList.add('d-none')
+    )
+    
+
+
+
+    /* devo selezionare l'immagine che nell'html occupa il posto della valore visible image
+    e applicarle una classe */
+    
+});
+
+
+
+/* PROVE */
+
+/* images.forEach((images, index) => {
+        if(index == visibleImage){
+            newImage.classList.remove('d-none')
+        }
+
+    }) */
+
+/* function show(array, interaction){
+    visibleImage = visibleImage + interaction
+
+    array.forEach((images, index) => {
+        if(index == visibleImage){
+
+        }
+    })
+} */
