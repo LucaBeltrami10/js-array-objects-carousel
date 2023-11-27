@@ -34,8 +34,8 @@ const images = [
  */
 
 const carouselContainer = document.getElementById('carousel-container');
-const buttonUp = document.getElementById('carousel-container');
-const buttonDown = document.getElementById('carousel-container');
+const buttonUp = document.getElementById('button-up');
+const buttonDown = document.getElementById('button-down');
 
 let visibleImageIndex = 0;
 
@@ -60,6 +60,22 @@ buttonUp.addEventListener('click', function(){
 
     if (visibleImageIndex >= 5){
         visibleImageIndex = 0
+    };
+
+    imgList.forEach((img, index) => {
+        if(index == visibleImageIndex){
+            img.classList.remove('d-none')
+        }else(
+            img.classList.add('d-none')
+        )
+    })  
+});
+
+buttonDown.addEventListener('click', function(){
+    visibleImageIndex -= 1
+
+    if (visibleImageIndex <= 0){
+        visibleImageIndex = 4
     };
 
     imgList.forEach((img, index) => {
