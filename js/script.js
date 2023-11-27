@@ -31,3 +31,7 @@ const images = [
  * aggiungo listener su bottone UP e DOWN.
  * nel listener di ogni bottone, al click, applico una classe per rendere 1 immagine visibile
  */
+
+const carouselContainer = document.getElementById('carousel-container')
+const buttonUp = document.getElementById('carousel-container')
+const buttonDown = document.getElementById('carousel-container')
