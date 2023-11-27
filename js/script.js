@@ -58,17 +58,19 @@ console.log(imgList)
 buttonUp.addEventListener('click', function(){
     visibleImageIndex += 1
 
-    if (visibleImageIndex > 5){
+    if (visibleImageIndex >= 5){
         visibleImageIndex = 0
     };
 
-    
+    imgList.forEach((img, index) => {
+        if(index == visibleImageIndex){
+            img.classList.remove('d-none')
+        }else(
+            img.classList.add('d-none')
+        )
+    })
 
-    if(imgList.length == visibleImageIndex){
-        imgList[visibleImageIndex].classList.remove('d-none')
-    }else(
-        imgList[visibleImageIndex].classList.add('d-none')
-    )
+    
     
 
 
