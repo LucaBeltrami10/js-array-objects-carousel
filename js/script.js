@@ -41,10 +41,10 @@ let visibleImageIndex = 0;
 
 images.forEach((images, index) => {
     const newContainer = document.createElement('article');
-    newContainer.classList.add('position-relative');
+    newContainer.classList.add('position-relative', 'd-none');
 
     const newInfoContainer = document.createElement('div');
-    newInfoContainer.classList.add('position-absolute', 'top-100', 'start-100', 'd-none');
+    newInfoContainer.classList.add('position-absolute', 'top-100');
 
     const newImage = document.createElement('img');
     newImage.setAttribute('src', images.image);
@@ -58,8 +58,7 @@ images.forEach((images, index) => {
     newParagraph.innerHTML = images.text;
 
     if (index == 0){
-        newImage.classList.remove('d-none');
-        newInfoContainer.classList.remove('d-none');
+        newContainer.classList.remove('d-none');
     };
 
     newInfoContainer.appendChild(newTitle);
@@ -73,7 +72,7 @@ images.forEach((images, index) => {
 
 let imgList = document.querySelectorAll('div#carousel-container article img');
 console.log(imgList)
-let infoContainerList = document.querySelectorAll('div#carousel-container article div')
+let infoContainerList = document.querySelectorAll('div#carousel-container article')
 console.log(infoContainerList)
 
 buttonUp.addEventListener('click', function(){
@@ -82,14 +81,6 @@ buttonUp.addEventListener('click', function(){
     if (visibleImageIndex > 4){
         visibleImageIndex = 0
     };
-
-    imgList.forEach((img, index) => {
-        if(index == visibleImageIndex){
-            img.classList.remove('d-none');
-        }else(
-            img.classList.add('d-none')
-        );
-    })  
 
     infoContainerList.forEach((container, index) => {
         if(index == visibleImageIndex){
@@ -106,14 +97,6 @@ buttonDown.addEventListener('click', function(){
     if (visibleImageIndex < 0){
         visibleImageIndex = 4;
     };
-
-    imgList.forEach((img, index) => {
-        if(index == visibleImageIndex){
-            img.classList.remove('d-none');
-        }else(
-            img.classList.add('d-none')
-        );
-    });  
 
     infoContainerList.forEach((container, index) => {
         if(index == visibleImageIndex){

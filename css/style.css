@@ -1,13 +1,23 @@
 #carousel-container{
-    width: 800px;
-    height: 400px;
+    width: 1000px;
+    height: 600px;
     background-color: aquamarine;
-    margin: 0 auto;/* 
-    overflow: hidden; */
+    margin: 0 auto;
 }
 
 .btn{
     z-index: 2;
+}
+
+article{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+article div{
+    color: white;
+    transform: translateY(-100%);
+    padding-top: 1rem;
 }
 
 /* .my-img{
