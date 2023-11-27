@@ -25,3 +25,9 @@ const images = [
     }
 ];
 
+/**PIANIFICAZIONE PASSAGGI
+ * recupero elementi html nel dom
+ * creo per ogni oggetto contenuto nell'array una immagine con classe d-none
+ * aggiungo listener su bottone UP e DOWN.
+ * nel listener di ogni bottone, al click, applico una classe per rendere 1 immagine visibile
+ */
