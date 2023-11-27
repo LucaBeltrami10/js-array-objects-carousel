@@ -68,19 +68,30 @@ buttonUp.addEventListener('click', function(){
         }else(
             img.classList.add('d-none')
         )
-    })
-
-    
-    
-
-
-
-    /* devo selezionare l'immagine che nell'html occupa il posto della valore visible image
-    e applicarle una classe */
-    
+    })  
 });
 
 
+
+
+
+/** RICAPITOLANDO
+ *  recupero elementi doom
+ * ciclo forEach per creare tante immagini quanti gli oggetti in array, con classi specifiche, e inserirle nel parent
+ * recupero dal dom tutte le eimmagini create in un nuovo array con quarySelectorAll (IMMAGINI)
+ * creo una variabile per immagine da mostrare (INDEX)
+ * listener su bottone UP
+ *      -aumento di 1 INDEX
+ *      -controllo che INDEX non sia sopra a 5 e in caso lo correggo
+ *      -modifico l'oggetto nell'array IMMAGINI corrispindente a INDEX aggiungendo classe X
+ *      -rimuovo classe X a tutti gli oggetti non coincidenti alla posizione INDEX
+ * 
+ * listener su posizione DOWN
+ *      -diminuisco di 1 INDEX
+ *      -controllo che INDEX non sia inferiore a 0 e in caso lo correggo
+ *      -modifico l'oggetto nell'array IMMAGINI corrispindente a INDEX aggiungendo classe X
+ *      -rimuovo classe X a tutti gli oggetti non coincidenti alla posizione INDEX
+ */
 
 /* PROVE */
 
