@@ -43,7 +43,7 @@ images.forEach((images) => {
     const newImage = document.createElement('img')
     newImage.setAttribute('src', images.image)
     newImage.setAttribute('alt', `image of ${images.title}`)
-    newImage.classList.add('d-none', 'my-img')
+    newImage.classList.add('d-none', 'w-100')
 
     carouselContainer.appendChild(newImage)
 })

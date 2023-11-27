@@ -3,4 +3,11 @@
     height: 400px;
     background-color: aquamarine;
     margin: 0 auto;
+    overflow: hidden;
 }
+
+/* .my-img{
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+} */
