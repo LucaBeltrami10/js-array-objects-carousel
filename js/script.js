@@ -43,8 +43,9 @@ images.forEach((images, index) => {
     const newContainer = document.createElement('article');
     newContainer.classList.add('position-relative');
 
-    const newInfoContainer = document.createElement('div')
+    const newInfoContainer = document.createElement('div');
     newInfoContainer.classList.add('position-absolute', 'top-100', 'start-100', 'd-none');
+
     const newImage = document.createElement('img');
     newImage.setAttribute('src', images.image);
     newImage.setAttribute('alt', `image of ${images.title}`);
@@ -56,7 +57,7 @@ images.forEach((images, index) => {
     const newParagraph = document.createElement('p')
     newParagraph.innerHTML = images.text;
 
-    if (visibleImageIndex == index){
+    if (index == 0){
         newImage.classList.remove('d-none');
         newInfoContainer.classList.remove('d-none');
     };

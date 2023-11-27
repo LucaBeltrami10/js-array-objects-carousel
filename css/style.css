@@ -2,8 +2,12 @@
     width: 800px;
     height: 400px;
     background-color: aquamarine;
-    margin: 0 auto;
-    overflow: hidden;
+    margin: 0 auto;/* 
+    overflow: hidden; */
+}
+
+.btn{
+    z-index: 2;
 }
 
 /* .my-img{
